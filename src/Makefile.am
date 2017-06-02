@@ -32,7 +32,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir) -D_REENTRANT \
 	-DPKGLIBDIR=\"$(pkglibdir)\"
 
 sbin_PROGRAMS = miredo miredo-server miredo-checkconf
-pkglib_PROGRAMS =
+# pkglib_PROGRAMS =
 EXTRA_PROGRAMS = privproc
 noinst_LTLIBRARIES = libmiredo.la
 TESTS =
@@ -59,7 +59,7 @@ miredo_LDADD = ../libtun6/libtun6.la ../libteredo/libteredo.la libmiredo.la \
 miredo_privproc_SOURCES = privproc.c privproc.h
 miredo_privproc_LDADD = ../libteredo/libteredo.la $(LIBCAP)
 if TEREDO_CLIENT
-pkglib_PROGRAMS += miredo-privproc
+sbin_PROGRAMS += miredo-privproc
 TESTS += miredo-checkconf
 endif
 
